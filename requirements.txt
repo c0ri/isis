@@ -1,0 +1,13 @@
+# Isis.py Requirements.
+# Pretty sure google-cloud will just install all the google ones.
+# python3 -m pip install -r requirements.txt 
+python-vlc
+openai
+google-api-core
+google-auth
+google-cloud-speech
+google-cloud-texttospeech
+googleapis-common-protos
+pathtools
+python-dotenv
+# -- Done
