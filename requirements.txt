@@ -10,4 +10,6 @@ google-cloud-texttospeech
 googleapis-common-protos
 pathtools
 python-dotenv
+import pyaudio
+from six.moves import queue
 # -- Done

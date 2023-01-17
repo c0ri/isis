@@ -22,13 +22,14 @@ Create an API Key and copy it.
 Export it to you Environment. Maybe something like:
   export OPENAI_API_KEY=SomeLongStringOfLongCharactersAndNumb3r5
 
-Open a Google Cloud Developer account. You should have one already, if not, bad player no cookie.  Seriously I think
-it's still free for 1 year. Some services like Google APIs into Speech will cost a tiny fee.
+Open a Google Cloud Developer account. You should have one already, if not, bad player no cookie.  Seriously I think it's still free for 1 year. Some services like Google APIs into Speech will cost a tiny fee.
 
 Go to your console and create a new App for Text2Speech and connect it to their Speech API.
 Get the API Key (don't forget to enable the service so you can connect)
 put it in a file in your project directory called google_secret_key.json or whereever you want and
 modify the code accordingly. You could even stick it in your ENVironment vars as I've done for OpenAI.
+
+Do the same thing for Speech2Text API. Again, as with the other API, you'll need to create a user and assign privs to it, and then generate a json token which you can download and put in the directory with this code. Be sure to change the name of the key to match what's in the code or vice-versa.
 
 Check the code and make sure things look right. If you are a penetration tester you should never blindly
 download and run code ;) 

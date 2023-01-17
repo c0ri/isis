@@ -1,6 +1,6 @@
 # -- Isis.py - An AI chatbot to help with your Penetration Testing.
 # -- Author: Corley Efurd 
-# -- Version: 1.0
+# -- Version: 1.1
 # -- Description: This code is intented to help legitimate penetration testers in their
 # -- work in order to allow them to work faster/better and help keep the internet secure.
 # -- In NO WAY shall this code be used to any nefarious purposes such as BlackHat hacking
@@ -10,6 +10,7 @@
 # -- and help make it better, but please give credit where it is due. Thanks!
 import os
 import openai
+import speech2text
 from dotenv import load_dotenv
 import time
 from google.cloud import texttospeech
@@ -120,6 +121,9 @@ def sayit(text):
         print('Audio content written to file "output.mp3"')
         p = vlc.MediaPlayer("output.mp3")
         p.play()
+        time.sleep(1.5)
+        duration = p.get_length() / 1000
+        time.sleep(duration)
 
 
 def ask(question):
@@ -193,14 +197,12 @@ if __name__ == '__main__':
     myq = ""
     #while myq.find('bye') or myq.find('quit'):
     while myq.lower() not in {'quit', 'bye', 'goodbye', 'sayonara'}:
-        myq = input(f"{bcolors.OKCYAN}Me: -> {bcolors.ENDC}")
+        # myq = input(f"{bcolors.OKCYAN}Me: -> {bcolors.ENDC}")
+        # -- If you want to use the microphone uncomment the next 2 lines and comment
+        # -- out the line above.
+        print(f"{bcolors.OKCYAN}Cori: -> {bcolors.ENDC}")
+        myq = speech2text.main()
+        # -- Use Speech ^^^
         isisres = ask(myq)
-        #if isisres not in {'<html', '</form>', '</div>', '=', 'type='}:
-        #    sayit(isisres)
-        #else:
-        #    print(f"{bgcolors.OKCYAN}--- Raw Code Below ---")
-        #    print(f"{isisres}")
-        #    print(f"--- END of Code Block ---{bgcolors.ENDC}")
-        #print(f'{chat_log}')
         sayit(isisres)
         print(f"{bcolors.OKGREEN}Isis: {isisres}{bcolors.ENDC}") 
